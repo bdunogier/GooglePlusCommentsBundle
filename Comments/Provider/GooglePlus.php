@@ -17,22 +17,14 @@ class GooglePlus extends TemplateBasedProvider
     public function render( Request $request, array $options = array() )
     {
         return $this->doRender(
-            $options + array(
-                'shortname' => $this->shortName,
-                'identifier' => $request->getPathInfo(),
-            )
+            $options + array()
         );
     }
 
     public function renderForContent( ContentInfo $contentInfo, Request $request, array $options = array() )
     {
         return $this->doRender(
-            $options + array(
-                'shortname' => $this->shortName,
-                'identifier' => $contentInfo->id,
-                // TODO: Use translated name
-                'title' => $contentInfo->name,
-            )
+            $options + array()
         );
     }
 

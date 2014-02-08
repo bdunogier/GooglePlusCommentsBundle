@@ -22,20 +22,11 @@ class Factory extends SiteAccessAwareFactory
      *
      * @return \EzSystems\CommentsBundle\Comments\ProviderInterface
      */
-    public function buildGooglePlus( LocationService $locationService, RouterInterface $router )
+    public function buildGooglePlus()
     {
         $googlePlusProvider = new GooglePlus(
-            /*$this->configResolver->getParameter( 'facebook.app_id', 'ez_comments' ),
-            array(
-                'width' => $this->configResolver->getParameter( 'facebook.width', 'ez_comments' ),
-                'num_posts' => $this->configResolver->getParameter( 'facebook.num_posts', 'ez_comments' ),
-                'color_scheme' => $this->configResolver->getParameter( 'facebook.color_scheme', 'ez_comments' ),
-                'include_sdk' => $this->configResolver->getParameter( 'facebook.include_sdk', 'ez_comments' ),
-            ),
-            $locationService,
-            $router,
             $this->templateEngine,
-            $this->configResolver->getParameter( 'facebook.default_template', 'ez_comments' )*/
+            "BDGooglePlusCommentsBundle::googleplus.html.twig"
         );
 
         return $googlePlusProvider;

@@ -1,0 +1,15 @@
+parameters:
+    bd_google_plus_comments.provider.googleplus.class: BD\Bundle\GooglePlusCommentsBundle\Comments\Provider\GooglePlus
+    bd_google_plus_comments.provider.factory.class: BD\Bundle\GooglePlusCommentsBundle\Comments\Provider\Factory
+
+services:
+    bd_google_plus_comments.provider.factory:
+        class: %bd_google_plus_comments.provider.factory.class%
+        parent: ez_comments.provider.factory
+
+    bd_google_plus_comments.provider.googleplus:
+        class: %bd_google_plus_comments.provider.googleplus.class%
+        factory_service: bd_google_plus_comments.provider.factory
+        factory_method: buildGooglePlus
+        tags:
+            - { name: ez_comments.provider, alias: googleplus }

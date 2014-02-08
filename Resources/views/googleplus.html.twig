@@ -27,8 +27,8 @@
                     gapi.comments.render(
                         'gpluscomments',
                         {
-                            href: gPlusComments.getAttribute('data-href'),
-                            view_type: gPlusComments.getAttribute('data-viewtype'),
+                            href: window.location,
+                            view_type: 'FILTERED_POSTMOD',
                             first_party_property: "BLOGGER",
                             width: parseInt(_getComputedStyle(gPlusComments, "width"), 10)
                         }
@@ -41,7 +41,5 @@
         })();
     </script>
 
-    <div id="gpluscomments"
-         data-href='http://vm.ankhblog/Blog/Gaz-de-Schiste-Non.-Mais-maintenant-je-sais-pourquoi'
-         data-viewtype='FILTERED_POSTMOD'></div>
+    <div id="gpluscomments"></div>
 {% endblock %}

@@ -23,16 +23,22 @@
             script.async = true;
             script.onload = function() {
                 if (gapi && gapi['comments'] && gapi.comments['render']) {
-                    var gPlusComments = document.getElementById('gpluscomments');
-                    gapi.comments.render(
-                        'gpluscomments',
-                        {
-                            href: window.location,
-                            view_type: 'FILTERED_POSTMOD',
-                            first_party_property: "BLOGGER",
-                            width: parseInt(_getComputedStyle(gPlusComments, "width"), 10)
-                        }
-                    );
+                    {% if mode == 'comments-count' %}
+                        gapi.commentcount.render('gpluscomments-count', {
+                            href: window.location
+                        });
+                    {% else %}
+                        var gPlusComments = document.getElementById('gpluscomments');
+                        gapi.comments.render(
+                            'gpluscomments',
+                            {
+                                href: window.location,
+                                view_type: 'FILTERED_POSTMOD',
+                                first_party_property: "BLOGGER",
+                                width: parseInt(_getComputedStyle(gPlusComments, "width"), 10)
+                            }
+                        );
+                    {% endif %}
                 }
             };
             script.src = 'https://apis.google.com/js/plusone.js';
@@ -41,5 +47,9 @@
         })();
     </script>
 
-    <div id="gpluscomments"></div>
+    {% if mode == 'comments-count'%}
+        <div id="gpluscomments-count"></div>
+    {% else %}
+        <div id="gpluscomments"></div>
+    {% endif %}
 {% endblock %}

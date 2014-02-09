@@ -17,14 +17,14 @@ class GooglePlus extends TemplateBasedProvider
     public function render( Request $request, array $options = array() )
     {
         return $this->doRender(
-            $options + array()
+            $options + array( 'mode' => 'comments' )
         );
     }
 
     public function renderForContent( ContentInfo $contentInfo, Request $request, array $options = array() )
     {
         return $this->doRender(
-            $options + array()
+            $options + array( 'mode' => 'comments' )
         );
     }
 

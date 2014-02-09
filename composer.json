@@ -14,5 +14,5 @@
     "autoload": {
         "psr-0": {"BD\\Bundle\\GooglePlusCommentsBundle": ""}
     },
-    "target-dir": "BD/Bundle/GooglePlusComments"
+    "target-dir": "BD/Bundle/GooglePlusCommentsBundle"
 }
